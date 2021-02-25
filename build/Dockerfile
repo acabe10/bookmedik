@@ -1,12 +1,23 @@
 FROM debian
 MAINTAINER Alejandro Cabezas "alejandrocabezab@gmail.com"
 
-RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y apache2 \
+libapache2-mod-php7.3 \
+php7.3 \
+php7.3-mysql \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
 
 EXPOSE 80
-ADD public_html/index.html /var/www/html/
-ADD 000-default.conf /etc/apache2/sites-available/
 
-ENV SERVER_NAME www.example.com
+RUN rm /var/www/html/index.html
+COPY bookmedik /var/www/html/
+ADD script.sh /usr/local/bin/
 
-ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+RUN chmod +x /usr/local/bin/script.sh
+
+ENV DATABASE_USER=user_bookmedik
+ENV DATABASE_PASSWORD=pass_bookmedik
+ENV DATABASE_HOST=servidor_mysql
+
+CMD ["script.sh"]
