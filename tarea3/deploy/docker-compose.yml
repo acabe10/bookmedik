@@ -16,9 +16,16 @@ services:
 
   bookmedik:
      container_name: bookmedik
-     image: acabe10/bookmedik:v2
+     image: acabe10/bookmedik:v3
      restart: always
      ports:
          - 8080:80
      volumes:
-         - /opt/bookmedik_logs:/var/log/apache2
+         - /opt/bookmedik_logs_nginx:/var/log/nginx
+         - /opt/nginx:/usr/share/nginx/html/
+  php:
+     container_name: php
+     image: php:7.4-fpm
+     restart: always
+     volumes:
+         - /opt/nginx:/usr/share/nginx/html/
