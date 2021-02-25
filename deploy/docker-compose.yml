@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+ 
+	apache:
+		container_name: servidor_apache
+		build: ../build
+		restart: always
+		environment:
+			SERVER_NAME: www.prueba.com
+		ports:
+			- 8080:80
+
+	db:
+		container_name: servidor_mysql
+		image: mariadb
+		restart: always
+		environment:
+			MYSQL_DATABASE: bd_wp
+			MYSQL_USER: user_wp
+			MYSQL_PASSWORD: asdasd
+			MYSQL_ROOT_PASSWORD: asdasd
+		volumes:
+			- /opt/mysql_wp:/var/lib/mysql
