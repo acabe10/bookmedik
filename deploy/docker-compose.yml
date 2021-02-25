@@ -16,9 +16,9 @@ services:
      image: mariadb
      restart: always
      environment:
-           MYSQL_DATABASE: bd_wp
-           MYSQL_USER: user_wp
-           MYSQL_PASSWORD: asdasd
+           MYSQL_DATABASE: bookmedik
+           MYSQL_USER: user_bookmedik
+           MYSQL_PASSWORD: pass_bookmedik
            MYSQL_ROOT_PASSWORD: asdasd
      volumes:
-           - /opt/mysql_wp:/var/lib/mysql
+           - /opt/mysql:/var/lib/mysql
