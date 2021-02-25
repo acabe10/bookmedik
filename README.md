@@ -1,1 +1,1 @@
-Buenas, en este repositorio tengo alojado la construcción y despliegue de un contenedor con la aplicación web Bookmedik.
+Buenas, en este repositorio tenemos 5 ejercicios en los cuáles creamos varios escenarios con imagenes docker.
