@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+ 
+  db:
+     container_name: servidor_mysql
+     image: mariadb
+     restart: always
+     environment:
+           MYSQL_DATABASE: bookmedik
+           MYSQL_USER: user_bookmedik
+           MYSQL_PASSWORD: pass_bookmedik
+           MYSQL_ROOT_PASSWORD: asdasd
+     volumes:
+           - /opt/mysql:/var/lib/mysql
+
+  bookmedik:
+     container_name: bookmedik
+     image: acabe10/bookmedik:v2
+     restart: always
+     ports:
+         - 8080:80
+     volumes:
+         - /opt/bookmedik_logs:/var/log/apache2
