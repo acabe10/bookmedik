@@ -17,6 +17,7 @@ php7.3-mbstring \
 
 RUN rm /var/www/html/index.html
 COPY drupal /var/www/html/
+COPY drupal/sites /sites
 
 ADD script.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/script.sh
