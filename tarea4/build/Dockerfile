@@ -17,7 +17,10 @@ php7.3-mbstring \
 
 RUN rm /var/www/html/index.html
 COPY drupal /var/www/html/
-COPY drupal/sites /sites
+COPY drupal/sites /opt/drupal/sites
+COPY drupal/profiles /opt/drupal/profiles
+COPY drupal/modules /opt/drupal/modules
+COPY drupal/themes /opt/drupal/themes
 
 ADD script.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/script.sh

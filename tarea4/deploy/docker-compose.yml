@@ -21,4 +21,7 @@ services:
      ports:
          - 8080:80
      volumes:
-         - /opt/drupal:/var/www/html/sites/
+         - /opt/drupal/sites:/var/www/html/sites/
+         - /opt/drupal/themes:/var/www/html/themes/
+         - /opt/drupal/profiles:/var/www/html/profiles/
+         - /opt/drupal/modules:/var/www/html/modules/
