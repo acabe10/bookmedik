@@ -21,11 +21,11 @@ services:
      ports:
          - 8080:80
      volumes:
-         - /opt/bookmedik_logs_nginx:/var/log/nginx
-         - /opt/nginx:/usr/share/nginx/html/
+         - /opt/bookmedik-php:/code
+
   php:
      container_name: php
-     image: php:7.4-fpm
+     image: acabe10/php-fpm-mysqli:v1
      restart: always
      volumes:
-         - /opt/nginx:/usr/share/nginx/html/
+          - /opt/bookmedik-php:/code
